@@ -1,6 +1,6 @@
 {
-  "name": "warema-wms-venetian-blinds",
-  "version": "2.0.4",
+  "name": "warema-wms-api",
+  "version": "1.0.0",
   "description": "Node.js package to control Warema venetian blinds by Warema WMS Stick.",
   "main": "lib",
   "scripts": {
@@ -8,11 +8,9 @@
   },
   "keywords": [
     "warema",
-    "venetian",
-    "blinds",
     "wms"
   ],
-  "author": "aemm",
+  "author": "thauer",
   "license": "MIT",
   "dependencies": {
     "serialport": "9.0.2",
