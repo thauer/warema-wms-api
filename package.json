@@ -13,8 +13,8 @@
   "author": "thauer",
   "license": "MIT",
   "dependencies": {
-    "serialport": "9.0.2",
-    "@serialport/parser-delimiter": "9.0.1"
+    "serialport": "11.0.1",
+    "@serialport/parser-delimiter": "11.0.1"
   },
   "files" : ["/lib", "package.json", "README.md"],
   "directories": {

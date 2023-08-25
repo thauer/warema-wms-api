@@ -1,16 +1,23 @@
-const WmsVbStick = require("warema-wms-api");
+const WmsVbStick = require("../../warema-wms-api");
+const log = require( "../../warema-wms-api/lib/wms-vb-logger.js" );
+
+
+log.addLogFile( "console", "D", ""/*fileWrap*/, "MSm"/*tsFormat*/,["weatherBroadcast", "A18513", "968513", "678513", "9B8513"]/*filterArray*/ );
+//~ log.removeLogFile( "console" );
+log.addLogFile( "/home/pi/test.log", "D", "H"/*fileWrap*/, "YMDHMSm l"/*tsFormat*/, []/*filterArray*/ );
+log.addLogFile( "/home/pi/testdaily.log", "D", "D"/*fileWrap*/, "YMDHMSm l"/*tsFormat*/, []); //["g", "fo", "Tr"]/*filterArray*/ );
+
 weather = {}
 
 function callback( err, msg ){
-    console.log("hello");
     if( err ){ 
       console.log( "Callback err: " + err ); 
       return;
     }
     switch( msg.topic ) {
       case "wms-vb-init-completion" : 
-        // Enable callback messages for changes of position 
-        stick.setPosUpdInterval( 5000 );
+        stick.setPosUpdInterval( 0 );
+        // stick.setPosUpdInterval( 30000 );
         break;
       case "wms-vb-rcv-weather-broadcast":
         w = msg.payload.weather
@@ -47,18 +54,18 @@ stick = new WmsVbStick( "/dev/ttyUSB0", wms_channel, wms_panid, wms_key, {}, cal
 
 console.log( "finished." );
 
-stick.vnBlindAdd(1260043,"Ben"    )
-stick.vnBlindAdd(1187205,"Lilla"  )
-stick.vnBlindAdd(1190506,"Bedroom")
-stick.vnBlindAdd(1190504,"E1" )
-stick.vnBlindAdd(1190503,"E2" )
-stick.vnBlindAdd(1260229,"S1")
-stick.vnBlindAdd(1259963,"S2")
-stick.vnBlindAdd(1268208,"S3")
-stick.vnBlindAdd( 883045,"S4")
-stick.vnBlindAdd(1190496,"S5" )
-stick.vnBlindAdd(1190454,"S6" )
-stick.vnBlindAdd(1259545,"W1")
+stick.vnBlindAdd(1260043, "Ben"    )
+stick.vnBlindAdd(1187205, "Lilla"  )
+stick.vnBlindAdd(1190506, "Bedroom")
+stick.vnBlindAdd(1190504, "E1" )
+stick.vnBlindAdd(1190503, "E2" )
+stick.vnBlindAdd(1260229, "S1" )
+stick.vnBlindAdd(1259963, "S2" )
+stick.vnBlindAdd(1268208, "S3" )
+stick.vnBlindAdd( 883045, "S4" )
+stick.vnBlindAdd(1190496, "S5" )
+stick.vnBlindAdd(1190454, "S6" )
+stick.vnBlindAdd(1259545, "W1" )
 
 stick.vnBlindAdd(1247705, "Awning");
 stick.vnBlindAdd(1247909, "Awning West");
@@ -96,5 +103,6 @@ function raise( blinds ) {
 
 module.exports = { lower, raise };
 
-raise(west)
-//raise(south)
+stick.vnBlindSetPosition("E1", 66, 0)
+
+setTimeout( function() { stick.close(); }, 3000 );
