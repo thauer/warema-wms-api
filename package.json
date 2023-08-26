@@ -1,10 +1,10 @@
 {
   "name": "warema-wms-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node.js package to control Warema venetian blinds by Warema WMS Stick.",
   "main": "lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "keywords": [
     "warema",
@@ -13,10 +13,14 @@
   "author": "thauer",
   "license": "MIT",
   "dependencies": {
-    "serialport": "11.0.1",
-    "@serialport/parser-delimiter": "11.0.1"
+    "@serialport/parser-delimiter": "11.0.1",
+    "serialport": "11.0.1"
   },
-  "files" : ["/lib", "package.json", "README.md"],
+  "files": [
+    "/lib",
+    "package.json",
+    "README.md"
+  ],
   "directories": {
     "lib": "lib"
   },
@@ -27,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/thauer/warema-wms-api/issues"
   },
-  "homepage": "https://github.com/thauer/warema-wms-api#readme"
+  "homepage": "https://github.com/thauer/warema-wms-api#readme",
+  "devDependencies": {
+    "jest": "^29.6.4"
+  }
 }
