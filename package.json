@@ -1,6 +1,6 @@
 {
   "name": "warema-wms-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js package to control Warema venetian blinds by Warema WMS Stick.",
   "main": "lib",
   "scripts": {

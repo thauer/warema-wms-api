@@ -3,3 +3,4 @@ node_modules
 lib/test-logger.js
 package-lock.json
 test/doodle.js
+test/bridge.js
