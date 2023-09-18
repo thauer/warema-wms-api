@@ -1,5 +1,5 @@
-const WmsVbStick = require("../../warema-wms-api");
-const log = require( "../../warema-wms-api/lib/wms-vb-logger.js" );
+const WmsVbStick = require("../lib");
+const log = require( "../lib/wms-vb-logger.js" );
 
 
 log.addLogFile( "console", "D", ""/*fileWrap*/, "MSm"/*tsFormat*/,["weatherBroadcast", "A18513", "968513", "678513", "9B8513"]/*filterArray*/ );

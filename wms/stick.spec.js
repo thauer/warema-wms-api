@@ -88,7 +88,7 @@ test.skip("Command {K} sets stick key and receives ACK", done => {
     }, 200 );
 });
 
-test.only("Command {M} sets stick channel and receives ACK", done => {
+test.skip("Command {M} sets stick channel and receives ACK", done => {
     port = new SerialPort( { path: "/dev/ttyUSB0" , baudRate: 125000 });
     parser = port.pipe(new DelimiterParser({ delimiter: '}' }));
 
