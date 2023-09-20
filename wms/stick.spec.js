@@ -27,7 +27,7 @@ test("SerialPort can be opened and closed", () => {
     }, 100 );
 })
 
-test.skip("Command {G} returns stick name", done => {
+test("Command {G} returns stick name", done => {
     port = new SerialPort( { path: "/dev/ttyUSB0" , baudRate: 125000 });
     parser = port.pipe(new DelimiterParser({ delimiter: '}' }));
 
