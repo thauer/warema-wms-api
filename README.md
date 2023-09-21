@@ -561,9 +561,9 @@ A message with this topic is emitted when the WMS Stick receives a weather broad
       "snr": 627233,
       "snrHex": "219209",
       "ts": "2019-06-22T19:55:07.953Z",
-      "temp": 18,
+      "temperature": 18,
       "wind": 26,
-      "lumen": 8372,
+      "illuminance": 8372,
       "rain": true
     }
   }
@@ -830,9 +830,9 @@ The method returns the last received weather broadcast.
   "snr": 627233,
   "snrHex": "219209",
   "ts": "2019-06-22T19:55:07.953Z",
-  "temp": 18,
+  "temperature": 18,
   "wind": 26,
-  "lumen": 8372,
+  "illuminance": 8372,
   "rain": true
 }
 ```

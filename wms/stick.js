@@ -3,7 +3,7 @@ const { createLogger, format, transports } = require('winston');
 const logger = createLogger({
   level: 'debug',
   format: format.simple(),
-  transports: [ new transports.Console()  ],
+  transports: [ new transports.Console() ],
 });
 
 const { SerialPort } = require('serialport');
@@ -29,7 +29,7 @@ parser.on('data', (data) => {
         return;
     }
 
-    matched = received.match(/{a}/);           // '{a}'
+    matched = received.match(/{a}/);                         // '{a}'
     if(matched !== null) {
         logger.debug("response: ACK");
         return;
@@ -38,11 +38,11 @@ parser.on('data', (data) => {
     // {r SNR    7080 ?? WI LU ?????? ?? ?? RA TE
     
     matched = received.match(
-        /{r(?<snr>.{6})7080..(?<wind>..)(?<lumen>..).{10}(?<rain>..)(?<temp>..).+}/
+        /{r(?<snr>.{6})7080..(?<wind>..)(?<illuminance>..).{10}(?<rain>..)(?<temperature>..).+}/
     )
     if(matched !== null ) {
-        logger.debug(util.format("response: WBCAST( wind: %s, lumen: %s, rain: %s, temp: %s)", 
-                                 matched.groups.wind, matched.groups.lumen, matched.groups.rain, matched.groups.temp));
+        logger.debug(util.format("response: WBCAST( wind: %s, illuminance: %s, rain: %s, temperature: %s)", 
+                                 matched.groups.wind, matched.groups.illuminance, matched.groups.rain, matched.groups.temperature));
         return;
     }
 });
@@ -60,6 +60,6 @@ port.on('open', () => {
 })
 
 setTimeout( () => {
-
+    logger.info("Closing port");
     port.close();
 }, 2000 );

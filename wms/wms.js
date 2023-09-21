@@ -22,12 +22,12 @@ function callback( err, msg ){
       case "wms-vb-rcv-weather-broadcast":
         w = msg.payload.weather
         if(false) {
-          console.log(`${w.snr}: ${w.lumen.toString().padStart(8)}lm `+
-                      `${w.temp.toFixed(1)}°C ${w.wind} rain: ${w.rain ? "yes" : "no"}`)
+          console.log(`${w.snr}: ${w.illuminance.toString().padStart(8)}lm `+
+                      `${w.temperature.toFixed(1)}°C ${w.wind} rain: ${w.rain ? "yes" : "no"}`)
         }
   
         side = {1279382: "12793(82)", 1279335: "12793(35)", 1279387: "12793(87)", 1279393: "West(93)"}
-        weather[side[w.snr]] = {'lumen': w.lumen, 'temp': w.temp, 'wind': w.wind, 'rain': w.rain}
+        weather[side[w.snr]] = {'illuminance': w.illuminance, 'temperature': w.temperature, 'wind': w.wind, 'rain': w.rain}
   
         break;
       case "wms-vb-blind-position-update":
