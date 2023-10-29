@@ -53,6 +53,7 @@ function send(stringToSend) {
 }
 
 port.on('open', () => {
+    
     setTimeout( () => { send("{G}")  }, 50);
     setTimeout( () => { send("{V}")  }, 100);
     setTimeout( () => { send("{K4011F29066087C70C9A9EF592F6A21444BE}")  }, 150);
@@ -62,4 +63,4 @@ port.on('open', () => {
 setTimeout( () => {
     logger.info("Closing port");
     port.close();
-}, 2000 );
+}, 5000 );

@@ -17,14 +17,21 @@ test("SerialPort should be available", () => {
     })
 })
 
-test("SerialPort can be opened and closed", () => {
+test("SerialPort can be opened, written to and closed", () => {
     port = new SerialPort( { path: "/dev/ttyUSB0" , baudRate: 125000 })
-    port.on('open', ()=>{ expect(port.isOpen)})
+    port.on('open', ()=>{ 
+        expect(port.isOpen)
+    })
+    setTimeout( () => { 
+        expect(port.isOpen);
+        var x = port.write("hello");
+        expect(x).toBe(true);
+    }, 200 );
     setTimeout( () => { 
         expect(port.isOpen);
         port.close();
         expect(!port.isOpen);
-    }, 100 );
+    }, 700 );
 })
 
 test("Command {G} returns stick name", done => {
